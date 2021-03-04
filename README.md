@@ -1,7 +1,7 @@
 # UrlService
  
 ## Contains
-- WEB API to shorten URL.
+- WEB API to obtain full URL from shortened URL.
 - Razor page to enter URL and test returned shortened URL.
 
 ## Installation
@@ -18,3 +18,4 @@
 - Microsoft Visual Studio Community 2019 (Version 16.8.6)
 - ASP.NET Core (version 5)
 - SQL Server 2019
+- Can test with Swagger (<base url>/swagger/index.html) to see generated Json
