@@ -10,5 +10,11 @@
 
 ## Usage
 - Load project into Visual Studio, build and run.
+- Should see the following
 
 <img src="https://github.com/KarlPage/UrlService/blob/master/urlservice.jpg?raw=true">
+
+## Notes
+- Microsoft Visual Studio Community 2019 (Version 16.8.6)
+- ASP.NET Core (version 5)
+- SQL Server 2019
