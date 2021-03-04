@@ -1,0 +1,83 @@
+﻿@page
+@model UrlService.Pages.IndexModel
+@{
+  void RenderError(string error)
+  {
+    <p>Error: <strong>@error</strong></p>
+  }
+
+  void RenderShortLink(string original, string shortLink)
+  {
+    <h3>Result</h3>
+    <div>
+      <p><span class="label">URL</span><span>@original</span></p>
+      <p><span class="label">Short URL</span><a href="http://@shortLink" target="_blank">Test</a></p>
+      <p><input type="text" size="40" value="@shortLink" onfocus="this.select();" onmouseup="return false;" /></p>
+
+    </div>
+  }
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Shorten URL</title>
+  <style>
+    #container {
+      margin: auto;
+      width: 50%;
+    }
+
+    div {
+      margin: 1em 2em;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    button {
+      border-radius: 8px;
+      padding: 10px;
+      cursor: pointer;
+      color: white;
+      background-color: firebrick;
+    }
+
+    .field-validation-error {
+      color: red;
+    }
+
+    .label {
+      font-weight: bold;
+      padding-right: 0.5em;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h2>URL Shortening Service</h2>
+    <form method="post">
+      <div>
+        URL
+        <label for="InputUrl" />
+        <input type="text" name="InputUrl" />
+        @Html.ValidationMessageFor(m => m.InputUrl)
+      </div>
+      <div>
+        <button>Shorten URL</button>
+      </div>
+      @Html.AntiForgeryToken()
+    </form>
+    <div id="result">
+      @if (null != Model.UrlEntryResult)
+      {
+        Model.UrlEntryResult.Visit(
+          err => RenderError(err.Message),
+          v => RenderShortLink(v.LongUrl, v.ShortUrl));
+      }
+    </div>
+  </div>
+</body>
+</html>
