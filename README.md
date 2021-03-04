@@ -10,5 +10,5 @@
 
 ## Usage
 - Load project into Visual Studio, build and run.
-\
-![Alt text](/urlservice.png?raw=true "Title")
+
+<img src="https://github.com/KarlPage/UrlService/blob/master/urlservice.jpg?raw=true">
